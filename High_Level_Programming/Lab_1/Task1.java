@@ -21,5 +21,7 @@ public class Task1 {
 
         System.out.printf("Вы проехали %d км. Из расчета 8 руб. 50 коп. за км, " +
                 "стоимость проезда равна %d руб. %.0f коп.", end - start, (int) price, (price - (int)price) * 100);
+
+        scanner.close();
     }
 }

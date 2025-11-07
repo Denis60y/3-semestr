@@ -72,7 +72,7 @@ class SimpleGUI extends JFrame {
             String popa1 = input1.getText();
             String popa2 = input2.getText();
             String popa3 = input3.getText();
-            String message = "";
+            String message = ""; 
             int fuel = 0;
 
             try {
