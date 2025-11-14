@@ -4,6 +4,12 @@ class Food extends Item{
     private int saturationLevel;
     private int foodLevel;
 
+    public Food(String name, String id, int maxStackSize, int quantitym, int saturationLevel, int foodLevel){
+        super(name, id, maxStackSize, quantitym);
+        this.saturationLevel = saturationLevel;
+        this.foodLevel = foodLevel;
+    }
+
     public Food(String name, String id, int maxStackSize, int saturationLevel, int foodLevel){
         super(name, id, maxStackSize);
         this.saturationLevel = saturationLevel;
@@ -23,6 +29,7 @@ class Food extends Item{
     public int getFoodLevel(){return foodLevel;}
 
     public void getInfo(){
-        System.out.printf("Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nНасыщение еды: %d\nУтоление голода: %d\n", getName(), getId(), getMaxStackSize(),saturationLevel, foodLevel);
+        System.out.printf("Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\\n" + //
+                        "Насыщение еды: %d\nУтоление голода: %d\n", getName(), getId(), getMaxStackSize(), getQuantity(), saturationLevel, foodLevel);
     }
 }
