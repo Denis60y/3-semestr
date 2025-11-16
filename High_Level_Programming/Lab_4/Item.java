@@ -5,13 +5,14 @@ class Item {
     private String id;
     private int maxStackSize;
     private int quantity;
-
+    
+    //Конструкторы
     public Item(String name, String id, int maxStackSize, int quantity) {
         this.name = name;
         this.id = id;
         this.maxStackSize = maxStackSize;
         if (quantity > maxStackSize) {
-            this.quantity = 0;
+            this.quantity = maxStackSize;
             System.out.println("Количество предмета в ячейке не может превышать максимальное возможное количество");
         } else {
             this.quantity = quantity;
@@ -32,6 +33,7 @@ class Item {
         this.quantity = 1;
     }
 
+    //getter'ы и setter'ы
     public void setName(String name) {
         this.name = name;
     }
@@ -72,17 +74,15 @@ class Item {
         return quantity;
     }
 
+    //Функция тотображения всей информации
     public void getInfo() {
         System.out.printf(
                 "Название предмета: %s\nID предмета: %s\nМаксимальное количество в слоте: %d\nКоличество предметов в яцейке: %d\n",
                 name, id, maxStackSize, quantity);
     }
 
-    public void drop() {
-        if (quantity > 1) {
-            quantity -= 1;
-        } else {
-            System.out.println("Количество предметов не может быть равно 0");
-        }
-    }
+    //функция выбрасывания предмета 
+    public void abandoned() {
+        quantity -= 1;
+    }   
 }

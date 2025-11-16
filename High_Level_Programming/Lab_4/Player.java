@@ -34,22 +34,46 @@ class Player {
     public boolean getBuff() {
         return buff;
     }
-    
-    public void getInfo(){
+
+    public void getInfo() {
         System.out.printf("HP персонажа: %d\nСытость персонажа: %d\nНаличие эффекта: %b\n", HP, satiety, buff);
     }
 
     public void drinkMilk() {
         this.buff = false;
     }
-    
-    public void useFood(Food food){
-        if (food.getQuantity()>0){
-            this.HP += food.eaten1();
-            this.satiety += food.eaten2();
-        }
-        else{
+
+    public void useFood(Food food) {
+        if (food.getQuantity() > 0) {
+            food.eaten();
+            this.HP += food.getSaturationLevel();
+            this.satiety += food.getFoodLevel();
+        } else {
             System.out.println("Не хватает предмета");
+        }
+    }
+
+    public void drop(Item item) {
+        if (item.getQuantity() > 0) {
+            item.abandoned();
+        } else {
+            System.out.println("Не хватает предмета");
+        }
+    }
+
+    public void setBlock(Block block) {
+        if (block.getQuantity() > 0) {
+            block.use();
+        } else {
+            System.out.println("Не хватает предмета");
+        }
+    }
+
+    public void hit(Tool tool) {
+        if (tool.getStrength() > 0) {
+            tool.hit();
+        } else {
+            System.out.println("Предмет сломан");
         }
     }
 }

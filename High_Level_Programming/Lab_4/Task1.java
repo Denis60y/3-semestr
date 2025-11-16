@@ -12,8 +12,9 @@ package High_Level_Programming.Lab_4;
 
 public class Task1 {
     public static void main(String[] args) {
-        Food item1 = new Food("Яблоко", "apple", 64, 5, 5, 35);
+        Food item1 = new Food("Яблоко", "apple", 64, 1, 5, 35);
         Player Steve = new Player(20, 10, false);
-        Steve.getInfo();
+        Block block = new Block("Grass", "grass", true, false, false);
+        block.getInfo();
     }
 }
