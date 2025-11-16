@@ -34,13 +34,22 @@ class Player {
     public boolean getBuff() {
         return buff;
     }
-
-    public void drinkMilk() {
-        this.buff = false;
-    }
-
+    
     public void getInfo(){
         System.out.printf("HP персонажа: %d\nСытость персонажа: %d\nНаличие эффекта: %b\n", HP, satiety, buff);
     }
 
+    public void drinkMilk() {
+        this.buff = false;
+    }
+    
+    public void useFood(Food food){
+        if (food.getQuantity()>0){
+            this.HP += food.eaten1();
+            this.satiety += food.eaten2();
+        }
+        else{
+            System.out.println("Не хватает предмета");
+        }
+    }
 }
