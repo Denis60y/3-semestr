@@ -7,7 +7,7 @@ class Inventory {
 
     public Inventory(){
         this.items = new Item[this.maxSize];
-    } 
+    }
 
     public void setItem(Item item, int number){
         this.items[number] = item;
@@ -17,21 +17,40 @@ class Inventory {
         return items;
     }
 
+    public Item getItem(int number){
+        return items[number];
+    }
+
     public void addItem(Item item) {
         if (cursor < maxSize) {
-            this.items[cursor] = item;
+            items[cursor] = item;
             cursor++;
         } else {
             System.out.println("Инвентарь полон!");
         }
     }
-    
-    public void deleteItem(int number){
+
+    public void deleteItemByIndex(int number){
         if (0 < number && number < 10){
-            this.items[number] = null;
+            items[number] = null;
+            for (int i = number; i+1 < maxSize; i++){
+                items[i] = items[i+1];
+            }
         }
         else{
             System.out.println("Нет такого предмета");
+        }
+    }
+
+    public void deleteItem(Item item){
+        for (int i = 0; i < maxSize; i++){
+            if (item == items[i]){
+                items[i] = null;
+                for (int j = i; j+1 < maxSize; j++){
+                    items[j] = items[j+1];
+                }
+                break;
+            }
         }
     }
 
@@ -39,6 +58,7 @@ class Inventory {
         for (int i = 0; i < maxSize; i++){
             if (items[i] != null){
                 items[i].getInfo();
+                System.out.println("\n");
             }
             else{
                 continue;
