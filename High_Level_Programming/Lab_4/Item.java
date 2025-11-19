@@ -5,7 +5,7 @@ class Item {
     private String id;
     private int maxStackSize;
     private int quantity;
-    
+
     //Конструкторы
     public Item(String name, String id, int maxStackSize, int quantity) {
         this.name = name;
@@ -59,7 +59,7 @@ class Item {
     }
 
     public void setQuantity(int quantity) {
-        if (quantity < 0) {
+        if (quantity <= 0) {
             System.out.println("Количество не может быть отрицательным");
             return;
         }
@@ -81,8 +81,8 @@ class Item {
                 name, id, maxStackSize, quantity);
     }
 
-    //функция выбрасывания предмета 
+    //функция выбрасывания предмета
     public void abandoned() {
         quantity -= 1;
-    }   
+    }
 }
