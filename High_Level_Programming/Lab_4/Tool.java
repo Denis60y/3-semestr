@@ -21,7 +21,11 @@ class Tool extends Item {
     }
 
     public void setStrength(int strength) {
-        this.strength = strength;
+        if (strength > 0){
+            this.strength = strength;
+        }else{
+            System.out.println("Прочность предмета не может быть отрицательной или равной 0");
+        }
     }
 
     public int getStrength() {

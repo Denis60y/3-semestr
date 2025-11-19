@@ -59,7 +59,7 @@ class Item {
     }
 
     public void setQuantity(int quantity) {
-        if (quantity <= 0) {
+        if (quantity < 0) {
             System.out.println("Количество не может быть отрицательным");
             return;
         }
