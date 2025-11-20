@@ -33,13 +33,6 @@ class Player {
         this.items = new Item[this.maxSize];
     }
 
-
-
-
-
-
-
-
     //getter'ы и setter'ы
     public void setName(String name) {
         this.name = name;
@@ -72,9 +65,6 @@ class Player {
     public boolean getBuff() {
         return buff;
     }
-
-
-
 
     //работа с инвентарём
     public void setItem(Item item, int number){
@@ -130,23 +120,10 @@ class Player {
         }
     }
 
-
-
-
-
-
-
     //Получении информации о объекте класса player
     public void getInfo() {
         System.out.printf("HP персонажа: %d\nСытость персонажа: %d\nНаличие эффекта: %b\n", HP, satiety, buff);
     }
-
-
-
-
-
-
-
 
     //Методы класса
     //Метод выпить молоко и сбросить баффы
