@@ -1,6 +1,7 @@
 package High_Level_Programming.Lab_4;
 
 class Player {
+    //Поля класса
     private String name;
     private int maxHP;
     private int HP;
@@ -11,6 +12,7 @@ class Player {
     private final int maxSize = 10;
     private int cursor = 0;
 
+    //констуркторы 
     public Player(String name, int maxHP, int HP, int maxSatiety, int satiety, boolean buff) {
         this.name = name;
         this.maxHP = maxHP;
@@ -38,7 +40,7 @@ class Player {
 
 
 
-
+    //getter'ы и setter'ы
     public void setName(String name) {
         this.name = name;
     }
@@ -74,7 +76,7 @@ class Player {
 
 
 
-
+    //работа с инвентарём
     public void setItem(Item item, int number){
         this.items[number] = item;
     }
@@ -134,7 +136,7 @@ class Player {
 
 
 
-
+    //Получении информации о объекте класса player
     public void getInfo() {
         System.out.printf("HP персонажа: %d\nСытость персонажа: %d\nНаличие эффекта: %b\n", HP, satiety, buff);
     }
@@ -146,12 +148,13 @@ class Player {
 
 
 
-
-
+    //Методы класса
+    //Метод выпить молоко и сбросить баффы
     public void drinkMilk() {
         this.buff = false;
     }
 
+    //Метод проверки на возможность употребить еду
     public void useFood(Item item) {
         if(!(item instanceof Food food)){
             System.out.println("Этот предмет нельзя съесть");
@@ -171,6 +174,7 @@ class Player {
         eatFood(food);
     }
 
+    //метод поедания еды
     private void eatFood(Food food){
         food.eaten();
 
@@ -183,6 +187,7 @@ class Player {
         }
     }
 
+    //метод на выброс единицы предмета из инвентаря
     public void drop(Item item) {
         if (item.getQuantity() > 0) {
             item.abandoned();
@@ -194,6 +199,7 @@ class Player {
         }
     }
 
+    //метод поставить один блок из инвентаря
     public void setBlock(Block block) {
         if (block.getQuantity() > 0) {
             block.use();
@@ -205,6 +211,7 @@ class Player {
         }
     }
 
+    //метод использования инструмента
     public void hit(Tool tool) {
         if (tool.getStrength() > 0) {
             tool.hit();
