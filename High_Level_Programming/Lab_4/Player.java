@@ -153,31 +153,33 @@ class Player {
     }
 
     public void useFood(Item item) {
-        if(item instanceof Food food){
-            if (satiety < maxSatiety){
-                if (food.getQuantity() > 0) {
-                    food.eaten();
-                    HP += food.getSaturationLevel();
-                    if(HP > maxHP){
-                        HP = maxHP;
-                    }
-                    satiety += food.getFoodLevel();
-                    if (satiety > maxSatiety){
-                        satiety = maxSatiety;
-                    }
-                    buff = food.getEnchanted();
-                    if (food.getQuantity() == 0){
-                        deleteItemByIndex(food.getINdex());
-                    }
-                } else {
-                    System.out.println("Не хватает предмета");
-                }
-            }
-            else{
-                System.out.println("Персонаж не голоден");
-            }
-        }else{
+        if(!(item instanceof Food food)){
             System.out.println("Этот предмет нельзя съесть");
+            return;
+        }
+
+        if (satiety >= maxSatiety){
+            System.out.println("Персонаж не голоден");
+            return;
+        }
+        
+        if (item.getQuantity() <= 0){
+            System.out.println("Не хватает предмета");
+            return;
+        }
+
+        eatFood(food);
+    }
+
+    private void eatFood(Food food){
+        food.eaten();
+
+        HP = Math.min(maxHP, food.getSaturationLevel());
+        satiety = Math.min(maxSatiety, food.getFoodLevel());
+        buff = food.getEnchanted();
+
+        if (food.getQuantity() == 0){
+            deleteItemByIndex(food.getINdex());
         }
     }
 
