@@ -2,13 +2,28 @@ package High_Level_Programming.Lab_4;
 
 class Tool extends Item {
     private int damage;
+    private int maxStrenght;
     private int strength;
     private int power;
 
-    public Tool(String name, String id, int damage, int strength, int power) {
+    public Tool(String name, String id, int damage, int maxStrenght, int strength, int power) {
         super(name, id, 1, 1);
         this.damage = damage;
-        this.strength = strength;
+        this.maxStrenght = maxStrenght;
+        if (strength > 0 && strength <= maxStrenght) {
+            this.strength = strength;
+        } else {
+            System.out.println(
+                    "Прочность предмета не может быть отрицательной, равной нулю или выше максимальной возможной прочности");
+        }
+        this.power = power;
+    }
+
+    public Tool(String name, String id, int damage, int maxStrenght, int power) {
+        super(name, id, 1, 1);
+        this.damage = damage;
+        this.maxStrenght = maxStrenght;
+        this.strength = maxStrenght;
         this.power = power;
     }
 
@@ -20,11 +35,20 @@ class Tool extends Item {
         return damage;
     }
 
+    public void setMaxStrength(int maxStrenght) {
+        this.maxStrenght = maxStrenght;
+    }
+
+    public int getMaxStrengt() {
+        return maxStrenght;
+    }
+
     public void setStrength(int strength) {
-        if (strength > 0) {
+        if (strength > 0 && strength <= maxStrenght) {
             this.strength = strength;
         } else {
-            System.out.println("Прочность предмета не может быть отрицательной или равной 0");
+            System.out.println(
+                    "Прочность предмета не может быть отрицательной, равной нулю или выше максимальной возможной прочности");
         }
     }
 
