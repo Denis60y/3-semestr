@@ -1,24 +1,17 @@
 package High_Level_Programming.Lab_5;
 
-/*ЛАБОРАТОРНАЯ РАБОТА №4
+/*ЛАБОРАТОРНАЯ РАБОТА №5
  * 
  * 
  * 
  * Автор: @Pitt0n
- * Дата создания: 08.11.2025
- * Версия: 0.0.9
+ * Дата создания: 29.11.2025
+ * Версия: 1.0
  */
 
 public class Task1 {
     public static void main(String[] args) {
-        Food Apple = new Food("Яблоко", "apple", 64, 1, 5, 2);
-        Player Steve = new Player("Steve", 20, 5, false);
-        Tool tool = new Tool("Pick", "pick", 2, 3, 4);
-        Steve.addItem(tool);
-        Steve.addItem(Apple);
-        Steve.getInfoItems();
-        Steve.drop(Apple);
-        Steve.drop(Apple);
-        Steve.getInfoItems();
+        MyFrame myFrame = new MyFrame();
+        myFrame.setVisible(true);
     }
 }
