@@ -71,11 +71,11 @@ class Tool extends Item {
                 getName(), getId(), getMaxStackSize(), getQuantity(), damage, strength, power, getIndex() + 1);
     }
 
-    public void hit() {
-        strength -= 1;
-    }
-
     public int сalculateSrength() {
         return maxStrenght - strength;
+    }
+    
+    public void useItem() {
+        strength -= 1;
     }
 }

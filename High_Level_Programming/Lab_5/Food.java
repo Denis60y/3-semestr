@@ -84,7 +84,7 @@ class Food extends Item {
     }
 
     // функция поедания предмета
-    public void eaten() {
+    public void useItem() {
         setQuantity(getQuantity() - 1);
     }
 }

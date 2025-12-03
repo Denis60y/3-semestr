@@ -62,7 +62,7 @@ class Block extends Item {
     }
 
     // Функция использования предмета
-    public void use() {
+    public void useItem() {
         setQuantity(getQuantity() - 1);
     }
 }

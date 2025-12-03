@@ -94,4 +94,6 @@ abstract class Item {
     public void abandoned() {
         quantity -= 1;
     }
+
+    public abstract void useItem();
 }
