@@ -24,12 +24,12 @@ class Player {
         this.items = new Item[this.INVENTORY_SIZE];
     }
 
-    public Player(String name, int HP, int satiety, boolean buff) {
+    public Player(String name, int maxHP, int maxSatiety, boolean buff) {
         this.name = name;
-        this.maxHP = 20;
-        this.HP = HP;
-        this.maxSatiety = 10;
-        this.satiety = satiety;
+        this.maxHP = maxHP;
+        this.HP = maxHP;
+        this.maxSatiety = maxSatiety;
+        this.satiety = maxSatiety;
         this.buff = buff;
         this.items = new Item[this.INVENTORY_SIZE];
     }
