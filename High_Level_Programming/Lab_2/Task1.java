@@ -1,9 +1,5 @@
 package High_Level_Programming.Lab_2;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-
 public class Task1 {
     public static String distance(int A, int B, int fuel, int volume) {
 
@@ -33,4 +29,3 @@ public class Task1 {
         app.setVisible(true);
     }
 }
-
