@@ -20,8 +20,8 @@ with open('resources/input/Текстовый формат/Виртуальна�
     for i, line in enumerate(lines):
         if "(RU)" in line:
             authors.append(line)
-        if "Виртуальная установка «Поршневой компрессор»" in line:
-            name = line
+        if "Название программы дляЭВМ:" in line:
+            name = lines[i + 1]
         if "Номеррегистрации" in line:
             number = lines[i + 1]
 
