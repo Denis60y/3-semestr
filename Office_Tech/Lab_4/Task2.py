@@ -4,10 +4,11 @@ import PyPDF2
 
 title = ['Название', 'Авторы', 'регистрационный номер', 'номер заявки', 'правообладатель', 'дата поступления', 'дата регистрации', 'полный путь до файла']
 
-authors = []
+author = []
 
+path1 = 'resources/input/Текстовый формат/Виртуальная установка «Поршневой компрессор».PDF'
 
-with open('resources/input/Текстовый формат/Виртуальная установка «Поршневой компрессор».PDF', 'rb') as pdf_file_obj:
+with open(path1, 'rb') as pdf_file_obj:
     pdf_file_reader = PyPDF2.PdfReader(pdf_file_obj)
     
     first_page = pdf_file_reader.pages[0]
@@ -19,56 +20,35 @@ with open('resources/input/Текстовый формат/Виртуальна�
 
     for i, line in enumerate(lines):
         if "(RU)" in line:
-            authors.append(line)
+            author.append(line)
         if "Название программы дляЭВМ:" in line:
             name = lines[i + 1]
         if "Номеррегистрации" in line:
             number = lines[i + 1]
 
+    author.pop()
+    author[0] = author[0][0: 6] + " " + author[0][6: 11] + " " + author[0][11: 21]
+    author[1] = author[1][:-34]
+    author[2] = author[2][0:7] + " " + author[2][7:-35]
+    author[3] = author[3][:-36] + " " + author[3][14:-28]
+    author[4] = author[4][:-47] + " " + author[4][14:-37]
+    author[5] = author[5][:-6]
+    author[6] = author[6][:-5]
+
+    authors1 = ""
+
+    for i in range(len(author)):
+        authors1 += author[i] + ", "
+
+    data1 = []
+    data1.append(name)
+    data1.append(authors1)
+    data1.append(number)
+
+    print(author)
 
 
 
-authors.pop()
-authors[0] = authors[0][0: 6] + " " + authors[0][6: 11] + " " + authors[0][11: 21]
-authors[1] = authors[1][:-34]
-authors[2] = authors[2][0:7] + " " + authors[2][7:-35]
-authors[3] = authors[3][:-28]
-authors[4] = authors[4][:-37]
-authors[5] = authors[5][:-6]
-authors[6] = authors[6][:-5]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-data = []
-data.append(name)
-data.append(authors)
-data.append(number)
 
 
 test = {}
@@ -77,10 +57,9 @@ for i in range(len(title)):
     if i > 2:
         test[f"{title[i]}"] = "popa"
     else:
-        test[f"{title[i]}"] = data[i]
+        test[f"{title[i]}"] = data1[i]
 
 
-df = pd.DataFrame(test)
-
+df = pd.DataFrame([test])
 
 df.to_excel('resources/test.xlsx')
