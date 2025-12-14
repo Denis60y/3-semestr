@@ -220,31 +220,6 @@ add = text.add_run("Результаты работы программы")
 add.font.size = Pt(14)
 add.bold = True
 
-# text = doc.add_paragraph()
-# p_fmt = text.paragraph_format
-# p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
-# add = text.add_run("КАРТИНКА")
-# add.font.size = Pt(12)
-
-# text = doc.add_paragraph()
-# p_fmt = text.paragraph_format
-# p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
-# add = text.add_run("Рисунок 1. Подпись к рисунку")
-# add.font.size = Pt(12)
-
-# text = doc.add_paragraph()
-# p_fmt = text.paragraph_format
-# p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
-# add = text.add_run("КАРТИНКА")
-# add.font.size = Pt(12)
-
-# text = doc.add_paragraph()
-# p_fmt = text.paragraph_format
-# p_fmt.alignment = docx.enum.text.WD_ALIGN_PARAGRAPH.CENTER
-# add = text.add_run("Рисунок 2. Подпись к рисунку")
-# add.font.size = Pt(12)
-
-
 for i in range(len(photos)):
     text = doc.add_paragraph()
     p_fmt = text.paragraph_format
